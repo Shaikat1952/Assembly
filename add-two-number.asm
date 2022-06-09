@@ -1,3 +1,4 @@
+INCLUDE 'EMU8086.INC'
 .model small
 .stack 100h
 .data
@@ -12,11 +13,15 @@ main proc
     
     mov ah,9
     lea dx,a
-    int 21h
+    int 21h 
+    
+    
     
     mov ah,1
     int 21h
     mov bl,al
+    
+    PRINTN ""
     
     mov ah,9
     lea dx,b
@@ -25,6 +30,8 @@ main proc
     mov ah,1
     int 21h
     mov bh,al
+    
+    PRINTN "" 
     
     mov ah,9
     lea dx,c

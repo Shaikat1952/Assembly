@@ -1,0 +1,30 @@
+;READ A CHARACTER AND IF IT IS AN UPPERCASE LETTER,DISPLAY IT
+
+.MODEL SMALL
+.STACK 100H
+.CODE
+MAIN PROC
+    MOV AH,1
+    INT 21H
+    MOV BL,AL
+    CMP AL,'A'
+    JGE INS1
+    JMP EXIT
+    
+   INS1:
+    CMP AL,'Z'
+    JLE INS2
+    JMP EXIT 
+    INS2:   
+        MOV AH,2
+        MOV DL,10
+        INT 21H
+        MOV DL,13
+        INT 21H
+        MOV DL,BL
+        INT 21H
+   EXIT:
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+END MAIN

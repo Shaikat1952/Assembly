@@ -1,7 +1,7 @@
 .model small
 .stack 100h
 .data
-f1 dw "Hey Call Me Shaikat$"
+f1 dw "Shaikat:id 200101057$"
 
 .code
 main proc

@@ -1,0 +1,38 @@
+;SUPPOSE AL & BL CONTAIN EXTENDED ASCII CHARACTERS. DISPLAY THE ONE THAT COMES FIRST IN THE ASCII SEQUENCE.
+INCLUDE "EMU8086.INC"
+.MODEL SMALL
+.STACK 100H
+.CODE 
+MAIN PROC
+    PRINT "input-1:"
+    MOV AH,1
+    INT 21H
+    PRINTN ""
+    MOV BL,AL
+    PRINTN "input-2:"
+    MOV AH,1
+    INT 21H
+    PRINTN ""
+    CMP AL,BL
+    JNGE INS1
+    JMP INS2
+    
+    INS1:
+    MOV AH,2
+    MOV DL,AL                              
+    INT 21H
+    JMP EXIT
+    
+    INS2:
+    MOV AH,2
+    MOV DL,BL
+    INT 21H
+    
+    EXIT:
+    PRINTN " COMES FIRST" 
+    MOV AH,4CH
+    INT 21H
+    
+    MAIN ENDP
+END MAIN
+     

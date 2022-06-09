@@ -1,29 +1,28 @@
+INCLUDE 'EMU8086.INC'
 .MODEL SMALL
-.STACK 100H
+.STACK 100h
+.DATA
 .CODE
-     
 MAIN PROC
-    MOV AH,1
+    PRINT "Input: "
+    MOV AH, 1
     INT 21H
-    MOV BL,AL
+    MOV BL, AL     
     
-    MOV AH,1
+    MOV AH, 2
+    MOV DL, 10
     INT 21H
-    MOV CL,AL
+    MOV DL, 13
+    INT 21H   
     
-    MOV AH,2
-    MOV DL,CL
+    
+    PRINT "Output: "
+    MOV AH, 2
+    MOV DL, BL
     INT 21H
-    
-    MOV AH,2
-    MOV DL,BL
-    INT 21H
-    
-    
+  
+  
     MOV AH,4CH
     INT 21H
     MAIN ENDP
 END MAIN
-    
-
-
